@@ -1,0 +1,154 @@
+/*
+colors:
+ Blue - RGB(54, 92, 134);
+ off orange -  rgb(206, 119, 72);
+ green - rgb(103, 179, 63)
+
+
+*/
+
+
+
+/* CSS declarations go here */
+body {
+    background-color: rgb(44, 49, 54);
+}
+textarea {
+    max-width: 100%;
+}
+.space {
+    height: 200px;
+}
+
+#login-dropdown-list {
+position:fixed;
+top: 0px;
+right: 0px;
+background-color: white;
+color: black;
+padding: 10px;
+margin:5px;
+border-radius: 5px;
+box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.46); 
+}
+.login-buttons-dropdown-align- {
+display: inline-block;
+}
+.login-buttons-dropdown-align- a{
+    color: #000000;
+}
+#login-sign-in-link {
+ color: #e6e6e6; 
+}
+#login-name-link {
+  color: #e6e6e6;
+}
+
+#login-dropdown-list input {
+    border-radius: 3px;
+    border: 1px solid #afafaf;
+    float:right;
+}
+
+a.navbar-nav {
+    font-size:25px;
+    margin: 10px 0 0 15px;
+}
+
+.navbar-header {
+width: 100%;
+}
+
+.navbar-header .pull-right {
+    color: #e6e6e6;
+    padding: 10px 0;
+}
+
+.pull-right li {
+width: 90px;
+margin: 10px 0;
+}
+
+.pull-right li span {
+    display:inline;
+}
+.jumbotron {
+    /*background-color: rgb(28, 47, 67);*/
+    background: linear-gradient(rgb(39, 67, 96), rgb(44, 49, 54));
+    color: rgb(103, 179, 63);
+}
+
+.question-section {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.btn-group {
+  margin-bottom: 40px;
+}
+
+
+.filter-label{
+  color: #ebebeb;
+}
+
+
+/* STYLES FOR THE QUESTION-BOXES */
+.delete-div {
+    background-color: #bc4545;
+    border: 1px solid #933434;
+    border-bottom-width: 2px;
+    margin: -8px 2px 0px 2px;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    float:right;
+}
+.delete {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 12px;
+}
+.question-box {
+    padding: 0 10px 10px 10px;
+    border: 1px solid rgb(45, 129, 117);
+    border-radius: 10px;
+    background-color: #d4d4d4;
+    color: black;
+}
+.question-box-padding {
+    padding: 5px;
+}
+
+.question-box hr {
+    border-color: black;
+    margin: 5px 3px 5px 3px;
+}
+
+.questionBody {
+    min-height: 150px;
+}
+
+.comments {
+    display:none;
+    margin-top: 20px;
+}
+
+.comment {
+    margin: 5px 0 0 30px;
+    background-color: #7da3bf;
+    padding: 3px 10px 3px 10px;
+    border-radius: 5px;
+}
+.subject, .userName {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.userName {
+   float:right; 
+}
+

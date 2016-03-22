@@ -1,0 +1,179 @@
+<head>
+  <title>Blurt</title>
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-nav" href="#">Blurt</a>
+      <div class="pull-right">
+      <span class="glyphicon glyphicon-log-in"> </span> {{> loginButtons}} 
+      </div>
+    
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Welcome to //Blurt!</h1>
+  <p>Ask your code related problems</p>
+    <div class="col-md-4 col-md-offset-4">
+    {{#if currentUser}}
+    <form role="form" class="new-question">
+        <div class="form-group">
+            <label>Subject</label>
+              <select class="form-control" name="subject">
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>Javascript</option>
+                <option>Node.js</option>
+                <option>Express.js</option>
+                <option>Handlebars.js</option>
+                <option>Jade.js</option>
+                <option>Angular.js</option>
+                <option>Mongo DB</option>
+                <option>MySQL</option>
+                <option>Other</option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="question_body">Question</label>
+            <textarea type="text" class="form-control new-question" name="question" required></textarea>
+        </div>
+        <hr>
+        <input type="submit" class="btn btn-default" id="submit-new-question">
+    </form>
+    {{else}}
+    <p>Please join our community! Create an account to post questions and answers!</p>
+    {{/if}}
+    </div>
+    <div class="clearfix"></div>
+</div>
+  
+<div class="container">
+          <div class="col-sm-2 col-xs-5 filter-label">
+             <label>Filter Questions</label>
+              <select class="form-control filter-list" name="filterList">
+                <option>ALL</option>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>Javascript</option>
+                <option>Node.js</option>
+                <option>Express.js</option>
+                <option>Handlebars.js</option>
+                <option>Jade.js</option>
+                <option>Angular.js</option>
+                <option>Mongo DB</option>
+                <option>MySQL</option>
+                <option>Other</option>
+              </select>
+              <br/>
+              <br/>
+            </div>
+  <div class="question-section col-xs-12">
+         {{#each questions}}
+             {{> question}}
+         {{/each}}
+    <div class="clearfix"></div>
+  </div>
+  <div class="space col-lg-12">
+  </div>
+</div>
+
+
+
+{{> scriptTemplate}}
+
+</body>
+
+
+
+
+
+
+
+
+
+ <!--++++++++++++++++++++QUESTION TEMPLATE+++++++++++++++++++++--> 
+   
+<template name="question">
+    <div class="col-md-4 question-box-padding">
+       <div class="question-box">
+       <div class="qHeader">
+        <h4 class="subject">{{subject}}</h4>
+        <h5 class="userName">{{ownerName}}</h5>
+        </div>
+        {{#if ifUser}}
+        <div class="delete-div">
+            <span>Delete Question? </span><button class="delete pull-right btn btn-xs btn-default">X</button>
+        </div>
+        {{/if}}
+        <hr>
+        <h4 class="questionBody">{{qBody}}</h4>
+        <hr>
+        <h5>Comments:</h5>
+        <button class="showComments btn-xs btn-primary">Show Comments</button>
+            <div class="comments">
+            {{#each comments}} 
+                {{> commentCreater}} 
+            {{/each}}
+            </div>
+        {{#if currentUser}}
+        <div class="comment-form">
+            <form action="form" class="submit-comment">
+                <h5>Add Comment</h5>
+                <textarea type="text" name="comment" class="form-control"></textarea>
+                <hr/>
+                <input class="btn btn-default btn-sm" type="submit">
+            </form>
+        </div>
+        {{/if}}
+    </div>
+ </div>
+</template>
+
+
+
+
+<!--++++++++++++++++++++COMMENT TEMPLATE+++++++++++++++++++++-->
+
+<template name="commentCreater">
+  <div class="comment">
+            <h5>{{ownerName}}</h5>
+            <div class="like-group">
+                <a><span class="glyphicon glyphicon-thumbs-up"></span></a>
+                <span class="badge">{{likeCount}}</span>
+            </div>
+            <p>{{content}}</p>
+  </div>
+</template>
+
+
+
+
+<!--++++++++++++++++++++Page Scripts TEMPLATE+++++++++++++++++++++-->
+<template name="scriptTemplate">
+  
+    <script>      
+       $(".question-section").on('click', '.showComments',function(){
+           var text = $(this).html();
+           
+           if (text == "Show Comments"){
+               $(this).html("Hide Comments")
+           }
+            else if (text == "Hide Comments"){
+               $(this).html("Show Comments")
+           }
+               
+           $(this).next('.comments').slideToggle();
+       });
+
+
+
+    
+    </script>
+    
+</template>
